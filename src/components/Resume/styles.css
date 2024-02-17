@@ -1,0 +1,19 @@
+.resume{
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+@media screen and (max-width: 375px) {
+  :root h1, :root h2{
+    font-size: 14px;
+  }
+}
+
+@media print{
+  .resume{
+    margin: 0;
+  }
+  .download{
+    display: none;
+  }
+}

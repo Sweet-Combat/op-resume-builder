@@ -1,11 +1,14 @@
 import './App.css'
-import Form from './components/Form/Form'
-
 import React from 'react'
+import Builder from './components/Builder'
+import SelectTemplate from './components/SelectTemplate'
 
 const App = () => {
+
   return (
-    <Form />
+    <>
+      <SelectTemplate />
+    </>
   )
 }
 

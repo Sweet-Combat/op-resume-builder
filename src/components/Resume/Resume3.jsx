@@ -5,7 +5,7 @@ import { faGithub, faLinkedin, faTwitterSquare } from '@fortawesome/free-brands-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 
-const Resume = () => {
+const Resume3 = ({showDownload = true}) => {
   const [showSkills, setShowSkills] = useState(false);
   const [showActivities, setShowActivities] = useState(false);
   const [showEducation, setShowEducation] = useState(false);
@@ -48,7 +48,7 @@ const Resume = () => {
       <div className='resume print:border-none print:m-0 border-2 sm:border-4 border-black flex flex-col m-5 p-3  sm:gap-5'>
         <div className='header w-full flex justify-between pb-1 sm:pb-4 border-b-2 sm:border-b-4 border-red'>
           <div>
-            <h1 className='font-bold  text-2xl sm:text-3xl md:text-5xl lg:text-7xl uppercase text-red '>{resumeData.firstname} {resumeData.lastname}</h1>
+            <h1 className='font-bold  text-2xl sm:text-3xl md:text-5xl lg:text-7xl uppercase text-red '>3. {resumeData.firstname} {resumeData.lastname}</h1>
             <div className='font-semibold text-red text-[10px] sm:text-sm'>
               <p>{resumeData.address}</p>
               <p>{resumeData.phoneNo}
@@ -213,14 +213,18 @@ const Resume = () => {
         }
 
       </div>
-      <div className=' print:hidden  download my-8 flex justify-center w-full'>
-        <button className='text-center bg-blue-200 text-white p-4 rounded-full ' onClick={() => {
-          window.print()
-        }} >Download Resume</button>
-      </div>
+      {
+        showDownload && (
+            <div className=' print:hidden  download my-8 flex justify-center w-full'>
+                <button className='text-center bg-blue-200 text-white p-4 rounded-full ' onClick={() => {
+                  window.print()
+              }} >Download Resume</button>
+            </div>
+        )
+      }
     </div>
   )
 }
 
-export default Resume
+export default Resume3
 

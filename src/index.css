@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+*, *::after, *::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 
 @media screen and (max-width: 375px) { 
   body{

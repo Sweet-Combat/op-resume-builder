@@ -18,6 +18,8 @@ import { useEffect, useMemo, useState } from "react";
 const Form = () => {
   const navigate = useNavigate();
   const resumeData = useSelector((state) => state.resumeData.value);
+  const template = useSelector((state) => state.template.value);
+
   const dispatch = useDispatch();
 
   const [education, setEducation] = useState(
@@ -69,7 +71,19 @@ const Form = () => {
   }
   
   const submitHandler = () => {
-    navigate("/resume");
+    switch(template){
+      case 2: {
+        navigate('/resume2');
+        break;
+      }
+      case 3: {
+        navigate('/resume3');
+        break;
+      }
+      default: {
+        navigate('/resume1');
+      }
+    }
   };
 
   const updateObjectField = (name, value) => {

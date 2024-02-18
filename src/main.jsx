@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import Resume from './components/Resume/index.jsx'
 import './index.css'
 import {
   createBrowserRouter,
@@ -10,7 +9,10 @@ import {
 import { Provider } from 'react-redux'
 import { persistor, store } from './store/store.js'
 import { PersistGate } from 'redux-persist/integration/react'
-
+import Resume1 from './components/Resume/Resume1.jsx'
+import Resume2 from './components/Resume/Resume2.jsx'
+import Resume3 from './components/Resume/Resume3.jsx'
+import Builder from './components/Builder.jsx';
 
 const router = createBrowserRouter(
   [
@@ -19,8 +21,20 @@ const router = createBrowserRouter(
       element: <App/>
     }, 
     {
-      path: '/resume',
-      element: <Resume />
+      path: '/resume1',
+      element: <Resume1 />
+    },
+    {
+      path: '/resume2',
+      element: <Resume2 />
+    },
+    {
+      path: '/resume3',
+      element: <Resume3 />
+    }, 
+    {
+      path: '/builder',
+      element: <Builder />
     }
   ]
 )

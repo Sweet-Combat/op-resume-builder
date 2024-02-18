@@ -21,8 +21,8 @@ const initialState = {
       endYear: "",
     },
 
-    skills: [''],
-    activities: [''],
+    skills: ["", "", "", "", "", ""],
+    activities: ["", "", ""],
 
     experience: [
       {

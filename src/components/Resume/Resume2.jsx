@@ -5,7 +5,7 @@ import { faGithub, faLinkedin, faTwitterSquare } from '@fortawesome/free-brands-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 
-const Resume2 = ({showDownload = true}) => {
+const Resume2 = ({showDownload = true, inBuilder = false}) => {
   const [showSkills, setShowSkills] = useState(false);
   const [showActivities, setShowActivities] = useState(false);
   const [showEducation, setShowEducation] = useState(false);
@@ -62,26 +62,26 @@ const Resume2 = ({showDownload = true}) => {
             </div>
 
           </div>
-          <div className=' place-self-end'>
-            <div className='social-icons pt-2 flex gap-1 sm:gap-4'>
+          <div className='place-self-end'>
+            <div className='social-icons pt-2 flex gap-1 sm:gap-4 '>
               {
                 resumeData.website && (
-                  <a className='text-blue' href={resumeData.website} target='_blank'><FontAwesomeIcon className='sm:w-7 sm:h-7' icon={faGlobe} /></a>
+                  <a className='text-blue' href={resumeData.website} target='_blank' ><FontAwesomeIcon className={`${inBuilder? 'sm:w-3 sm:h-3': 'sm:w-7 sm:h-7'}`} icon={faGlobe} /></a>
                 )
               }
               {
                 resumeData.linkedin && (
-                  <a className='text-blue' href={resumeData.linkedin} target='_blank'><FontAwesomeIcon className='sm:w-7 sm:h-7' icon={faLinkedin} /></a>
+                  <a className='text-blue' href={resumeData.linkedin} target='_blank'><FontAwesomeIcon className={`${inBuilder? 'sm:w-3 sm:h-3': 'sm:w-7 sm:h-7'}`} icon={faLinkedin} /></a>
                 )
               }
               {
                 resumeData.twitter && (
-                  <a className='text-sky-400' href={resumeData.twitter} target='_blank'><FontAwesomeIcon className='sm:w-7 sm:h-7' icon={faTwitterSquare} /></a>
+                  <a className='text-sky-400' href={resumeData.twitter} target='_blank'><FontAwesomeIcon className={`${inBuilder? 'sm:w-3 sm:h-3': 'sm:w-7 sm:h-7'}`} icon={faTwitterSquare} /></a>
                 )
               }
               {
                 resumeData.github && (
-                  <a className='text-black' href={resumeData.github} target='_blank'><FontAwesomeIcon className='sm:w-7 sm:h-7' icon={faGithub} /></a>
+                  <a className='text-black' href={resumeData.github} target='_blank'><FontAwesomeIcon className={`${inBuilder? 'sm:w-3 sm:h-3': 'sm:w-7 sm:h-7'}`} icon={faGithub} /></a>
                 )
               }
 
@@ -101,7 +101,7 @@ const Resume2 = ({showDownload = true}) => {
 
         {
           showEducation && (
-            <div className='education-section pb-1 sm:pb-4 border-b-2 sm:border-b-4 border-red'>
+            <div className='education-section section pb-1 sm:pb-4 border-b-2 sm:border-b-4 border-red'>
             <h2 className=' text-red font-bold text-2xl sm:text-4xl  sm:pb-4 uppercase '>Education</h2>
 
             <div className='education font-semibold'>

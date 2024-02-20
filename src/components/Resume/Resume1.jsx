@@ -5,7 +5,7 @@ import { faGithub, faLinkedin, faTwitterSquare } from '@fortawesome/free-brands-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 
-const Resume1 = ({showDownload = true}) => {
+const Resume1 = ({showDownload = true, inBuilder = false}) => {
   const [showSkills, setShowSkills] = useState(false);
   const [showActivities, setShowActivities] = useState(false);
   const [showEducation, setShowEducation] = useState(false);
@@ -46,9 +46,9 @@ const Resume1 = ({showDownload = true}) => {
   return (
     <div className='resume-container'>
       <div className='resume print:border-none print:m-0 border-2 sm:border-4 border-black flex flex-col m-5 p-3  sm:gap-5'>
+          <h1 className='font-bold  text-2xl sm:text-3xl md:text-5xl lg:text-7xl uppercase text-red '>1. {resumeData.firstname} {resumeData.lastname}</h1>
         <div className='header w-full flex justify-between pb-1 sm:pb-4 border-b-2 sm:border-b-4 border-red'>
           <div>
-            <h1 className='font-bold  text-2xl sm:text-3xl md:text-5xl lg:text-7xl uppercase text-red '>1. {resumeData.firstname} {resumeData.lastname}</h1>
             <div className='font-semibold text-red text-[10px] sm:text-sm'>
               <p>{resumeData.address}</p>
               <p>{resumeData.phoneNo}
@@ -62,26 +62,26 @@ const Resume1 = ({showDownload = true}) => {
             </div>
 
           </div>
-          <div className=' place-self-end'>
-            <div className='social-icons pt-2 flex gap-1 sm:gap-4'>
+          <div className='place-self-end'>
+            <div className='social-icons pt-2 flex gap-1 sm:gap-4 '>
               {
                 resumeData.website && (
-                  <a className='text-blue' href={resumeData.website} target='_blank'><FontAwesomeIcon className='sm:w-7 sm:h-7' icon={faGlobe} /></a>
+                  <a className='text-blue' href={resumeData.website} target='_blank' ><FontAwesomeIcon className={`${inBuilder? 'sm:w-3 sm:h-3': 'sm:w-7 sm:h-7'}`} icon={faGlobe} /></a>
                 )
               }
               {
                 resumeData.linkedin && (
-                  <a className='text-blue' href={resumeData.linkedin} target='_blank'><FontAwesomeIcon className='sm:w-7 sm:h-7' icon={faLinkedin} /></a>
+                  <a className='text-blue' href={resumeData.linkedin} target='_blank'><FontAwesomeIcon className={`${inBuilder? 'sm:w-3 sm:h-3': 'sm:w-7 sm:h-7'}`} icon={faLinkedin} /></a>
                 )
               }
               {
                 resumeData.twitter && (
-                  <a className='text-sky-400' href={resumeData.twitter} target='_blank'><FontAwesomeIcon className='sm:w-7 sm:h-7' icon={faTwitterSquare} /></a>
+                  <a className='text-sky-400' href={resumeData.twitter} target='_blank'><FontAwesomeIcon className={`${inBuilder? 'sm:w-3 sm:h-3': 'sm:w-7 sm:h-7'}`} icon={faTwitterSquare} /></a>
                 )
               }
               {
                 resumeData.github && (
-                  <a className='text-black' href={resumeData.github} target='_blank'><FontAwesomeIcon className='sm:w-7 sm:h-7' icon={faGithub} /></a>
+                  <a className='text-black' href={resumeData.github} target='_blank'><FontAwesomeIcon className={`${inBuilder? 'sm:w-3 sm:h-3': 'sm:w-7 sm:h-7'}`} icon={faGithub} /></a>
                 )
               }
 
@@ -101,7 +101,7 @@ const Resume1 = ({showDownload = true}) => {
 
         {
           showEducation && (
-            <div className='education-section pb-1 sm:pb-4 border-b-2 sm:border-b-4 border-red'>
+            <div className='education-section section pb-1 sm:pb-4 border-b-2 sm:border-b-4 border-red'>
             <h2 className=' text-red font-bold text-2xl sm:text-4xl  sm:pb-4 uppercase '>Education</h2>
 
             <div className='education font-semibold'>
@@ -213,7 +213,7 @@ const Resume1 = ({showDownload = true}) => {
         }
 
       </div>
-      {
+     {
         showDownload && (
             <div className=' print:hidden  download my-8 flex justify-center w-full'>
                 <button className='text-center bg-blue-200 text-white p-4 rounded-full ' onClick={() => {
@@ -222,8 +222,7 @@ const Resume1 = ({showDownload = true}) => {
             </div>
         )
       }
-      
-      </div>
+    </div>
   )
 }
 

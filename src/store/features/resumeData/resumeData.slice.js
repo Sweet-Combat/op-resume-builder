@@ -2,14 +2,17 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   value: {
+    image: '',
     firstname: '',
     lastname: '',
+    title: '',
     website: '',
     twitter: '',
     linkedin: '',
     github: '',
 
     objective: '',
+    contact: '',
     email: '',
     address: '',
     education: 
@@ -40,6 +43,19 @@ const initialState = {
         endYear: "",
       }
     ],
+
+    projects: [
+      {
+        name: "",
+        role: "",
+        description: "",
+      },
+      {
+        name: "",
+        role: "",
+        description: "",
+      }
+    ],
   }
 }
 
@@ -55,6 +71,6 @@ export const resumeDataSlice = createSlice({
   }
 })
 
-export const { update, updateObj } = resumeDataSlice.actions
+export const { update } = resumeDataSlice.actions
 
 export default resumeDataSlice.reducer;

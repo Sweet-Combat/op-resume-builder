@@ -45,15 +45,15 @@ const Resume1 = ({showDownload = true, inBuilder = false}) => {
 
   return (
     <div className='resume-container'>
-      <div className='resume print:border-none print:m-0 border-2 sm:border-4 border-black flex flex-col m-5 p-3  sm:gap-5'>
-          <h1 className='font-bold  text-2xl sm:text-3xl md:text-5xl lg:text-7xl uppercase text-red '>1. {resumeData.firstname} {resumeData.lastname}</h1>
+      <div className='resume print:border-none print:m-0 border-2 border-black flex flex-col m-5 p-3  sm:gap-5'>
+          <h1 className='font-bold  text-2xl sm:text-3xl md:text-5xl lg:text-7xl uppercase text-red '>{resumeData.firstname} {resumeData.lastname}</h1>
         <div className='header w-full flex justify-between pb-1 sm:pb-4 border-b-2 sm:border-b-4 border-red'>
           <div>
             <div className='font-semibold text-red text-[10px] sm:text-sm'>
               <p>{resumeData.address}</p>
-              <p>{resumeData.phoneNo}
+              <p>{resumeData.contact}
                 {
-                  (resumeData.phoneNo && resumeData.email) && (
+                  (resumeData.contact && resumeData.email) && (
                     <span> | </span>
                   )
                 }

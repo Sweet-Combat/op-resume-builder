@@ -62,6 +62,7 @@ const Resume3 = ({ showDownload = true }) => {
             <p className="objective font-semibold text-2xl">
             {resumeData.objective}
             </p>
+
           </div>
           <div className="justify-self-end text-[1.2rem] text-right flex flex-col gap-3 py-12">
             <div className=" ">

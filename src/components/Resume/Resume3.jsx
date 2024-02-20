@@ -55,49 +55,46 @@ const Resume3 = ({ showDownload = true }) => {
       <div className="resume resume-3 min-h-screen  pt-16 ">
         <div className="header grid grid-cols-2 border-b-4 border-t3-blue px-20">
           <div className="">
-            <h1 className="name text-t3-grey text-6xl ">Mannu Singh</h1>
+            <h1 className="name text-t3-grey text-6xl ">{resumeData.firstname} {resumeData.lastname}</h1>
             <h2 className="role text-sky-600 text-3xl py-3">
-              Computer Scientist
+              Computer Scientist?????-?????-
             </h2>
             <p className="objective font-semibold text-2xl">
-              Gorund and Grind a challenging role as a Computer Scientist where
-              I can leverage my expertise in software development, data
-              analysis, and machine learning to contribute to innovative
-              projects.
+            {resumeData.objective}
             </p>
           </div>
           <div className="justify-self-end text-[1.2rem] text-right flex flex-col gap-3 py-12">
             <div className=" ">
-              example1245634@gmail.com
+            {resumeData.email}
               <FontAwesomeIcon className="mr-2 ml-2" icon={faEnvelope} />
             </div>
             <div className="">
-              +919999555544
+            {resumeData.phoneNo}
               <FontAwesomeIcon className="mr-2 ml-2" icon={faPhone} />
             </div>
             <div className=" ">
-              Jaffarpurkalan, Najafgarh , SouthWest Delhi-110073
+              {resumeData.address}
               <FontAwesomeIcon className="mr-2 ml-2" icon={faLocationDot} />
             </div>
-            <div
+            <a
               className="text-blue flex justify-end "
-              href={resumeData.faLinkedin}
+              href={resumeData.linkedin}
               target="_blank"
             >
-              www.Linkedin.com
+              {resumeData.linkedin}
               <FontAwesomeIcon
                 className="sm:w-7 ml-2 sm:h-7 "
                 icon={faLinkedin}
               />
-            </div>
-            <div
+            </a>
+            <a
               className="text-black flex justify-end"
               href={resumeData.github}
               target="_blank"
             >
-              www.github.com
+              {resumeData.github}
               <FontAwesomeIcon className="sm:w-7 sm:h-7 ml-2" icon={faGithub} />
-            </div>
+            </a>
           </div>
         </div>
         <div className="sec-section  grid grid-cols-2 min-h-screen px-20 py-10">
@@ -147,12 +144,13 @@ const Resume3 = ({ showDownload = true }) => {
             <div className="sec-BA mb-32">
               <h3 className="font-bold text-3xl">EDUCATION</h3>
               <p className="font-semibold text-3xl">
-                Ganga Institute of Technology and Management{" "}
+              {resumeData.education.institute}
               </p>
-              <p className=" text-3xl">Btech</p>
+              <p className=" text-3xl">{resumeData.education.degree}</p>
               <p className=" text-3xl">Cse</p>
-              <p className="text-xs font-medium">Startingyear</p>
-              <p className="text-xs font-medium">Passingyear</p>{" "}
+              <p className="text-xs font-medium">{resumeData.education.startYear}</p>
+              <p className="text-xs font-medium">{resumeData.education.endYear}</p>
+              <div className="text-2xl font-medium">{resumeData.education.description}</div>
             </div>
             <div className="sec-BB">
               <h3 className="font-semibold text-4xl mb-4">SKILLS</h3>

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import './builder.css'
-import Form from './Form/Form'
-import Resume1 from './Resume/Resume1'
-import Resume2 from './Resume/Resume2'
-import Resume3 from './Resume/Resume3'
+import './index.css'
+import Form from '../Form/Form'
+import Resume1 from '../Resume/Resume1'
+import Resume2 from '../Resume/Resume2'
+import Resume3 from '../Resume/Resume3'
 import { useSelector } from 'react-redux'
 import { useNavigate} from "react-router";
 

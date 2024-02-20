@@ -12,7 +12,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 import Resume1 from './components/Resume/Resume1.jsx'
 import Resume2 from './components/Resume/Resume2.jsx'
 import Resume3 from './components/Resume/Resume3.jsx'
-import Builder from './components/Builder.jsx';
+import Builder from './components/Builder/index.jsx';
 
 const router = createBrowserRouter(
   [

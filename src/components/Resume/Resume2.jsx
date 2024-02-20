@@ -1,13 +1,25 @@
-import React, { useEffect, useState } from 'react'
-import './styles.css'
-import { useSelector } from 'react-redux'
-import { faGithub, faLinkedin, faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGlobe } from '@fortawesome/free-solid-svg-icons';
+import React, { useEffect, useState } from "react";
+import "./styles.css";
+import { useSelector } from "react-redux";
+import {
+  faGithub,
+  faLinkedin,
+  faTwitter,
+  faTwitterSquare,
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faEnvelope,
+  faEnvelopeOpen,
+  faGlobe,
+  faLocation,
+  faLocationDot,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Resume2 = ({showDownload = true, inBuilder = false}) => {
   const [showSkills, setShowSkills] = useState(false);
-  const [showActivities, setShowActivities] = useState(false);
+  const [showProjects, setShowProjects] = useState(false);
   const [showEducation, setShowEducation] = useState(false);
   const [showExperience, setShowExperience] = useState(false);
 
@@ -21,12 +33,6 @@ const Resume2 = ({showDownload = true, inBuilder = false}) => {
       }
     })
 
-    resumeData.activities.map((activity) => {
-      if (activity) {
-        setShowActivities(true)
-      }
-    })
-
     Object.keys(resumeData.education).map((key) => {
       if (resumeData.education[key]) {
         setShowEducation(true)
@@ -35,183 +41,250 @@ const Resume2 = ({showDownload = true, inBuilder = false}) => {
 
     resumeData.experience.map((exp) => {
       Object.keys(exp).map((key) => {
-      if (exp[key]) {
-        setShowExperience(true)
-      }
+        if (exp[key]) {
+          setShowExperience(true)
+        }
+      })
     })
+
+    resumeData.projects.map((project) => {
+      Object.keys(project).map((key) => {
+        if (project[key]) {
+          setShowProjects(true)
+        }
+      })
     })
+
   }, [])
 
 
   return (
     <div className='resume-container'>
-      <div className='resume print:border-none print:m-0 border-2 sm:border-4 border-black flex flex-col m-5 p-3  sm:gap-5'>
-        <div className='header w-full flex justify-between pb-1 sm:pb-4 border-b-2 sm:border-b-4 border-red'>
-          <div>
-            <h1 className='font-bold  text-2xl sm:text-3xl md:text-5xl lg:text-7xl uppercase text-red '>2. {resumeData.firstname} {resumeData.lastname}</h1>
-            <div className='font-semibold text-red text-[10px] sm:text-sm'>
-              <p>{resumeData.address}</p>
-              <p>{resumeData.phoneNo}
-                {
-                  (resumeData.phoneNo && resumeData.email) && (
-                    <span> | </span>
-                  )
-                }
+      <div className='resume print:border-none print:m-0 border-2 border-black flex flex-col m-5 p-3 sm:gap-5'>
 
-                {resumeData.email}</p>
-            </div>
-
-          </div>
-          <div className='place-self-end'>
-            <div className='social-icons pt-2 flex gap-1 sm:gap-4 '>
-              {
-                resumeData.website && (
-                  <a className='text-blue' href={resumeData.website} target='_blank' ><FontAwesomeIcon className={`${inBuilder? 'sm:w-3 sm:h-3': 'sm:w-7 sm:h-7'}`} icon={faGlobe} /></a>
-                )
-              }
-              {
-                resumeData.linkedin && (
-                  <a className='text-blue' href={resumeData.linkedin} target='_blank'><FontAwesomeIcon className={`${inBuilder? 'sm:w-3 sm:h-3': 'sm:w-7 sm:h-7'}`} icon={faLinkedin} /></a>
-                )
-              }
-              {
-                resumeData.twitter && (
-                  <a className='text-sky-400' href={resumeData.twitter} target='_blank'><FontAwesomeIcon className={`${inBuilder? 'sm:w-3 sm:h-3': 'sm:w-7 sm:h-7'}`} icon={faTwitterSquare} /></a>
-                )
-              }
-              {
-                resumeData.github && (
-                  <a className='text-black' href={resumeData.github} target='_blank'><FontAwesomeIcon className={`${inBuilder? 'sm:w-3 sm:h-3': 'sm:w-7 sm:h-7'}`} icon={faGithub} /></a>
-                )
-              }
-
-
-            </div>
+        <div className="section-A h-40 sm:h-60 flex justify-around items-center ">
+          {
+            resumeData.image && (
+              <div className="section-AA   ">
+                <img className="rounded-[32rem] h-28 w-28 sm:h-44 sm:w-44" src={resumeData.image} alt="Not found" />
+              </div>
+            )
+          }
+          <div className="section-AB ">
+          {
+            (resumeData.firstname || resumeData.lastname ) && (
+              <h1 className="text-4xl font-medium text-cyan-600">
+                {`${resumeData.firstname} ${resumeData.lastname}`}
+              </h1>
+            )
+          }
+            <p>{resumeData.title}</p>
           </div>
         </div>
-        {
-          (resumeData.objective) && (
-            <div className='objective border-b-2 sm:border-b-4 border-red pb-1 sm:pb-4'>
-              <h2 className=' text-red font-bold text-2xl sm:text-4xl  sm:pb-4 uppercase '>objective</h2>
-              <p className='font-semibold text-[10px] sm:text-sm'>{resumeData.objective}</p>
 
-            </div>
-          )
-        }
+        <div className="section-B">
+          <div className="section-BA h-2 sm:h-4 bg-cyan-600 mx-2 sm:mx-6 "></div>
+        </div>
 
-        {
-          showEducation && (
-            <div className='education-section section pb-1 sm:pb-4 border-b-2 sm:border-b-4 border-red'>
-            <h2 className=' text-red font-bold text-2xl sm:text-4xl  sm:pb-4 uppercase '>Education</h2>
+        <div className="section-C flex ">
+          <div className="section-CA bg-cyan-600 mx-2 sm:mx-4 my-4 w-36 sm:w-52 p-4  text-white ">
 
-            <div className='education font-semibold'>
-              <div className='flex justify-between'>
-                <div>
-                  <span className='font-bold'>{resumeData.education.degree}</span>
-                  {
-                    resumeData.education.degree && resumeData.education.institute && (
-                      <span> | </span>
-                    )
-                  }
-                  {resumeData.education.institute}
-                </div>
-                <div className='text-[10px] sm:text-normal'>{resumeData.education.startYear}
-                  {
-                    resumeData.education.startYear && resumeData.education.endYear && (
-                      <span> - </span>
-                    )
-                  }
-                  {resumeData.education.endYear}</div>
-              </div>
-              <p className='text-[10px] sm:text-sm'>{resumeData.education.description}</p>
-            </div>
-            </div>
-          )
-        }
-        
-        { 
-          showExperience && (
-            <div className='experience-section sm:pb-4 border-b-2 sm:border-b-4 border-red'>
-              <h2 className=' text-red font-bold text-2xl sm:text-4xl  sm:pb-4 uppercase '>Experience</h2>
+            {
+              (resumeData.address || resumeData.contact || resumeData.email || resumeData.github) && (
+                  <div className="section-CAA contacts  mb-6 grid gap-2">
+      
+                <h3 className="font-semibold text-[0.9rem]">CONTACTS</h3>
+
               {
-                resumeData.experience.map((exp, indx) => {
-                  return (
-                    <div className='experience font-semibold' key={indx}>
-                      <div className='flex justify-between' >
-                        <div>
-                          <span>{exp.position}</span>
-                          {
-                            exp.position && exp.company && (
-                              <span> | </span>
-                            )
-                          }
-                          {exp.company}
-                        </div>
-                        <div className='text-[10px] sm:text-normal'>{exp.startYear}
-                          {
-                            exp.startYear && exp.endYear && (
-                              <span> - </span>
-                            )
-                          }
+                resumeData.address && (
+                  <div className="text-sm ">
+                    <FontAwesomeIcon className="mr-2" icon={faLocationDot} />
+                    {resumeData.address}
+                  </div>
+                )
+              }
+              {
+                resumeData.contact && (
+                  <div className="text-sm ">
+                    <FontAwesomeIcon className="mr-2" icon={faPhone} />
+                    {resumeData.contact}
+                  </div>
+                )
+              }
+              {
+                resumeData.email && (
+                  <div className="flex items-center break-words">
+                    <FontAwesomeIcon className="mr-2" icon={faEnvelope} />
+                    <p className="w-24 break-words text-xs">{resumeData.email}</p>
+                  </div>
+                )
+              }
+            </div>
+              )
+            }
+          
 
-                          {exp.endYear}</div>
-                      </div>
-                      <p className='pb-1 sm:pb-4 text-[10px] sm:text-sm'>{exp.description}</p>
+
+            {
+              (resumeData.linkedin || resumeData.website || resumeData.twitter || resumeData.github) && (
+                <>
+                  <hr />
+          
+                  <div className="section-CAB my-4 grid gap-2 ">
+                    <div>
+                      <h3 className="font-semibold text-[0.9rem]  ">SOCIAL MEDIA</h3>
                     </div>
-                  );
-                })
-              }
-            </div>
-          )
-        }
-        {
-          showSkills && (
-            <div className="w-full skills pb-1 sm:pb-4 border-b-2 sm:border-b-4 border-red">
-              <h2 className=' text-red font-bold text-2xl sm:text-4xl  sm:pb-4 uppercase'>Skills</h2>
-              <div className="w-full grid grid-cols-3 font-semibold">
-                {
-                  resumeData.skills.map((skill, indx) => {
-                    if (!skill) {
-                      return null;
+                    {
+                      resumeData.website && (
+                        <a className="text-sm" href={resumeData.website} target="_blank" >
+                          <FontAwesomeIcon
+                            className="sm:w-3 sm:h-3 mr-2"
+                            icon={faGlobe}
+                          />
+                          Website
+                        </a>
+                      )
                     }
+                    {
+                      resumeData.linkedin && (
+                        <a className="text-sm" href={resumeData.linkedin} target="_blank" >
+                          <FontAwesomeIcon
+                            className="sm:w-3 sm:h-3 mr-2"
+                            icon={faLinkedin}
+                          />
+                          Linkedin
+                        </a>
+                      )
+                    }
+                    {
+                      resumeData.github && (
+                        <a className="text-sm" href={resumeData.github} target="_blank" >
+                          <FontAwesomeIcon
+                            className="sm:w-3 sm:h-3 mr-2"
+                            icon={faGithub}
+                          />
+                          GitHub
+                        </a>
+                      )
+                    }
+                    
+                    {
+                      resumeData.twitter && (
+                        <a className="text-sm" href={resumeData.twitter} target="_blank" >
+                          <FontAwesomeIcon
+                            className="sm:w-3 sm:h-3 mr-2"
+                            icon={faTwitter}
+                          />
+                          Twitter
+                        </a>
+                      )
+                    }
+                  </div>
+                </>
 
-                    return (
-                      <li key={indx} className='text-[10px] sm:text-sm'>
-                        {skill}
-                      </li>
-                    );
-                  })
-                }
+              )
+            }
+            {
+              showSkills && (
+                <>
+                  <hr />
+                  <div className="section-CAC my-4  grid gap-2">
+                    <h3 className="font-semibold text-[0.9rem]">SKILLS</h3>
+                    <div className="text-xs ">
+                      <ul className="list-disc pl-4  grid gap-2">
+                        {
+                          resumeData.skills.map((skill, index) => {
+                            if(!skill) return null;
 
-              </div>
-            </div>
-          )
-        }
+                            return <li key={index}>{skill}</li>
+                          })
+                        }
+                      </ul>
+                    </div>
+                  </div>
+                </>
+              )
+            }
 
+          </div>
 
-        {
-          showActivities && (
-            <div className="activities">
-              <h2 className=' text-red font-bold text-2xl sm:text-4xl  sm:pb-4 uppercase '>Activities</h2>
-              {
-                resumeData.activities.map((activity, indx) => {
+          <div className="section-CB w-full mr-2">
 
-                  if (!activity) {
-                    return null;
+            {
+              showExperience && (
+
+                <div className="section-CBA experiences p-5 font-medium text-2xl ">
+                  <h3 className=" font-bold">WORK EXPERINCE</h3>
+                  {
+                    resumeData.experience.map((exp, indx) => {
+
+                      return (
+                        <div className="experience" key={indx}>
+                          <p className="text-sm ">{exp.position}</p>    
+                          <p className="text-sm ">{exp.company}</p>          
+                          <p className="text-sm">{exp.description}</p>
+                        </div>
+                      )
+                    })
                   }
+                </div>
 
-                  return (
-                    <li className='sm:pb-2 w-full font-semibold text-[10px] sm:text-sm' key={indx}>
-                      {activity}
-                    </li>
-                  );
+              )
+            }
 
-                })
-              }
-            </div>
-          )
-        }
+            {
+              showProjects && (
+                <>
+                
+                  <div className=" bg-black"><hr /></div>
+                              
+                  <div className="section-CBB projects p-5 font-medium text-2xl  ">
+                      <h3 className="font-bold">PROJECTS</h3>
 
+                      {
+                        resumeData.projects.map((project, index) => {
+
+                          return (
+                            <div className="project" key={index}>
+                              <p className="text-lg font-medium">{project.name}</p>    
+                              <p className="text-sm font-medium">{project.role}</p>          
+                              <p className="text-sm font-xs">{project.description}</p>          
+                            </div>
+                          )
+                          
+                        })
+                      }
+                  </div>
+
+                </>
+              )
+            }
+
+            {
+              showEducation && (
+                <>
+
+                  <div className=" bg-black"><hr /></div>
+
+                  <div className="section-CBC educations px-5 pt-2 font-medium text-2xl ">
+                    <div className="education">
+                      <h3 className="font-bold">EDUCATION</h3>
+                      <p className="text-lg font-medium">{resumeData.education.institute}</p>    
+                      <p className="text-xs font-medium">{resumeData.education.degree}</p>           
+                      <p className="text-xs font-medium">{resumeData.education.startYear}</p>          
+                      <p className="text-xs font-medium">{resumeData.education.endYear}</p>          
+                    </div>
+                  </div>
+
+                </>
+              )
+            }
+           
+
+
+          </div>
+
+    </div>  
       </div>
      {
         showDownload && (

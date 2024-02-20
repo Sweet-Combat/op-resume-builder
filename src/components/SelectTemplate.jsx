@@ -21,26 +21,27 @@ const SelectTemplate = () => {
 
   return (
     <div>
-        <div className="font-bold p-5 sm:p-8 mb-5 sm:mb-5 bg-blue text-neutral-50 text-3xl">
+        <div className="font-bold p-5  bg-blue text-neutral-50 text-3xl">
         <div className="logo">Resume Builder</div>
       </div>
-      <div className="flex flex-col items-center my-20 gap-3">
-        <h1 className="text-2xl">Select Template</h1>
-        <div className="templates flex gap-3">
+      <div className="flex flex-col items-center my-4 gap-3">
+        <h1 className="text-3xl  mb-6 font-bold">Select Template</h1>
+        <div className="templates flex sm:flex-row flex-col gap-3">
           {templates.map((value) => {
             return (
               <button
                 className={`${
                   selected === value
-                    ? "outline outline-2 outline-green-300"
+                    ? "outline outline-2 outline-green-300 scale-[1.1] "
                     : ""
-                } p-4 bg-pink-300`}
+                } p-2 bg-pink-300`}
                 key={value}
                 onClick={() => {
-                  updateSelected(value);
+                  updateSelected(value);  
                 }}
               >
-                {value}
+                <img  className= "w-40 h-30 object-cover sm:w-96 sm:h-104 hover:scale-[1.05]"src={`/op-resume-template-${value}.png`}></img>
+              
               </button>
             );
           })}
@@ -49,7 +50,7 @@ const SelectTemplate = () => {
         {selected && selected > 0 ? (
           <button
             className={
-              "w-max p-4 rounded-md hover:bg-blue hover:text-white shadow-xl bg-stone-50"
+              "w-max p-4 mt-6 text-2xl rounded-md hover:bg-blue hover:text-white shadow-xl bg-stone-50"
             }
             onClick={goToBuilder}
           >

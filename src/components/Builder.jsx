@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-// import './builder.css' //import to use builder css for preview
-import './builder-resume.css'
+import './builder.css'
 import Form from './Form/Form'
 import Resume1 from './Resume/Resume1'
 import Resume2 from './Resume/Resume2'
@@ -45,7 +44,7 @@ const Builder = () => {
           <div className="logo text-xl sm:text-2xl md:text-4xl ">Resume Builder</div>
           {
             resumeData?.firstname && (
-              <p className=''>
+              <p className='md:text-lg'>  
                 {'Resume: '}
                 <span className='capitalize'>
                   {resumeData.firstname}

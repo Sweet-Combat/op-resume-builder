@@ -1,48 +1,6 @@
-.resume-container-builder{
-  max-height: 90vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
+.resume-container-builder .resume h1 {
+  font-size: 28px;
 }
-
-.resume-container-builder::-webkit-scrollbar {
-  width: 0px; /* remove scrollbar space */
-  background: transparent; /* optional: just make scrollbar invisible */
+.resume-container-builder .resume h2 {
+  font-size: 24px;
 }
-
-.resume-container-builder div.resume{
-  width: 45vw;
-  font-size: 8px;
-
-  padding: 1rem;
-  margin: 1rem;
-  gap: 0;
-}
-
-.resume-container-builder .resume h1, .resume h2{
-  font-size: 12px;
-  padding: 0;
-  line-height: 2;
-}
-
-.resume-container-builder .resume p, 
-.resume-container-builder .resume li{
-  font-size: 8px;
-  line-height: 1.5;
-}
-
-.resume-container-builder .resume > div{
-  margin: 0;
-  padding: 0;
-  padding-bottom: 6px;
-}
-
-.resume-container-builder .resume .activities li{
-  padding: 0;
-}
-
-.resume-container-builder .resume .experience{
-  padding: 0;
-  margin: 0;
-}
-
-

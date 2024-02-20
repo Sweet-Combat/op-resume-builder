@@ -66,22 +66,22 @@ const Resume1 = ({showDownload = true, inBuilder = false}) => {
             <div className='social-icons pt-2 flex gap-1 sm:gap-4 '>
               {
                 resumeData.website && (
-                  <a className='text-blue' href={resumeData.website} target='_blank' ><FontAwesomeIcon className={`${inBuilder? 'sm:w-3 sm:h-3': 'sm:w-7 sm:h-7'}`} icon={faGlobe} /></a>
+                  <a className='text-blue' href={resumeData.website} target='_blank' ><FontAwesomeIcon className={`'sm:w-7 sm:h-7'}`} icon={faGlobe} /></a>
                 )
               }
               {
                 resumeData.linkedin && (
-                  <a className='text-blue' href={resumeData.linkedin} target='_blank'><FontAwesomeIcon className={`${inBuilder? 'sm:w-3 sm:h-3': 'sm:w-7 sm:h-7'}`} icon={faLinkedin} /></a>
+                  <a className='text-blue' href={resumeData.linkedin} target='_blank'><FontAwesomeIcon className={` 'sm:w-7 sm:h-7'}`} icon={faLinkedin} /></a>
                 )
               }
               {
                 resumeData.twitter && (
-                  <a className='text-sky-400' href={resumeData.twitter} target='_blank'><FontAwesomeIcon className={`${inBuilder? 'sm:w-3 sm:h-3': 'sm:w-7 sm:h-7'}`} icon={faTwitterSquare} /></a>
+                  <a className='text-sky-400' href={resumeData.twitter} target='_blank'><FontAwesomeIcon className={`'sm:w-7 sm:h-7'}`} icon={faTwitterSquare} /></a>
                 )
               }
               {
                 resumeData.github && (
-                  <a className='text-black' href={resumeData.github} target='_blank'><FontAwesomeIcon className={`${inBuilder? 'sm:w-3 sm:h-3': 'sm:w-7 sm:h-7'}`} icon={faGithub} /></a>
+                  <a className='text-black' href={resumeData.github} target='_blank'><FontAwesomeIcon className={`'sm:w-7 sm:h-7'}`} icon={faGithub} /></a>
                 )
               }
 

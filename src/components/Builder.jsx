@@ -72,7 +72,7 @@ const Builder = () => {
       <div className='resume-container-builder hidden lg:block w-8/12'>
         {
           templateNumber == 1 && (
-            <Resume1 showDownload={false} />
+            <Resume1 showDownload={false} inBuilder={true} />
           )
         }
         {

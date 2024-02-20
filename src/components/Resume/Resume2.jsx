@@ -60,13 +60,13 @@ const Resume2 = ({showDownload = true, inBuilder = false}) => {
 
   return (
     <div className='resume-container'>
-      <div className='resume print:border-none print:m-0 border-2 border-black flex flex-col m-5 p-3  sm:gap-5'>
+      <div className='resume print:border-none print:m-0 border-2 border-black flex flex-col m-5 p-3 sm:gap-5'>
 
-        <div className="section-A  h-60 flex justify-around items-center ">
+        <div className="section-A h-40 sm:h-60 flex justify-around items-center ">
           {
             resumeData.image && (
               <div className="section-AA   ">
-                <img className="rounded-[32rem] h-44 w-44" src={resumeData.image} alt="Not found" />
+                <img className="rounded-[32rem] h-28 w-28 sm:h-44 sm:w-44" src={resumeData.image} alt="Not found" />
               </div>
             )
           }
@@ -83,11 +83,11 @@ const Resume2 = ({showDownload = true, inBuilder = false}) => {
         </div>
 
         <div className="section-B">
-          <div className="section-BA h-4 bg-cyan-600 mx-6 "></div>
+          <div className="section-BA h-2 sm:h-4 bg-cyan-600 mx-2 sm:mx-6 "></div>
         </div>
 
         <div className="section-C flex ">
-          <div className="section-CA bg-cyan-600 mx-4 my-4 w-52 p-4  text-white ">
+          <div className="section-CA bg-cyan-600 mx-2 sm:mx-4 my-4 w-36 sm:w-52 p-4  text-white ">
 
             {
               (resumeData.address || resumeData.contact || resumeData.email || resumeData.github) && (

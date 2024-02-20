@@ -9,13 +9,54 @@
 }
 
 
-@media screen and (max-width: 375px) {
-  :root h1, :root h2{
-    font-size: 14px;
+@media screen and (max-width: 768px) {
+  :root h1{
+    font-size: 36px;
+    line-height: 1.4;
+  }
+   :root h2{
+    font-size: 24px;
+    line-height: 1.4;
+  }
+
+  :root h3{
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  :root p, :root div, :root a{
+    font-size: 16px;
+    line-height: 1.2;
   }
 }
 
+@media screen and (max-width: 375px) {
+  :root h1, :root h2{
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  :root h3{
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  :root p, :root div, :root a{
+    font-size: 10px;
+    line-height: 1.2;
+  }
+
+  :root div{
+    font-size: 8px;
+  }
+}
+
+
+
 @media print{
+  .body{
+    -webkit-print-color-adjust: exact;
+  }
   .resume{
     margin: 0;
   }

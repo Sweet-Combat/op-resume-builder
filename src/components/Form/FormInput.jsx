@@ -14,7 +14,7 @@ const FormInput = ({ type, name, placeholder, icon, value, onChange, maxlength=n
   const playAudio = () => {
     const audio = new Audio(buttonsound);
 
-    audio.volume = 0.04;
+    audio.volume = 0.4;
 
     audio.play();
   }

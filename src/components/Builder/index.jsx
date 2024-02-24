@@ -7,7 +7,6 @@ import Resume3 from '../Resume/Resume3'
 import { useSelector } from 'react-redux'
 import { useNavigate} from "react-router";
 
-
 const Builder = () => {
 
   const navigate = useNavigate();
@@ -17,7 +16,7 @@ const Builder = () => {
   const [resumePreviewVisible, setResumePreviewVisible] = useState(false);
 
   const goToSelectTemplate = () => {
-    navigate(-1);
+    navigate('/');
   }
 
   const generateResume = () => {
@@ -34,6 +33,10 @@ const Builder = () => {
           navigate("/resume1");
         }
       }
+  }
+
+  const updateResume = () => {
+    window.location.reload(true)
   }
 
 
@@ -55,6 +58,7 @@ const Builder = () => {
         </div>
         <div className='flex flex-col md:flex-row items-center gap-1'>
           <div className='sm:p-2 md:p-4 cursor-pointer ' onClick={goToSelectTemplate}>Back</div>
+          <div className='sm:p-2 md:p-4 cursor-pointer ' onClick={updateResume}>Update</div>
           <div className='sm:p-2 md:p-4 cursor-pointer ' onClick={generateResume}>
             Download
           </div>
